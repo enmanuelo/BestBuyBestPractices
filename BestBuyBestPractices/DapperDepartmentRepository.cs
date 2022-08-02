@@ -20,9 +20,9 @@ namespace BestBuyBestPractices
 			return _connection.Query<Department>("SELECT * FROM departments;");
 		}
 		// Create an InsertDepartment Method
-		public IEnumerable<Department> InsertDepartment()
-		{
-		}
+		//public IEnumerable<Department> InsertDepartment()
+		//{
+		//}
 	}
 }
 
