@@ -14,11 +14,21 @@ string connString = config.GetConnectionString("DefaultConnection");
 
 IDbConnection conn = new MySqlConnection(connString);
 
-var repo = new DapperDepartmentRepository(conn);
+var depRepo = new DapperDepartmentRepository(conn);
 
-var departments = repo.GetAllDepartments();
+depRepo.InsertDepartment("New Department");
+
+var departments = depRepo.GetAllDepartments();
 
 foreach(var department in departments)
 {
     Console.WriteLine($"Department ID: {department.DepartmentID}\nDepartment Name: {department.Name}");
+}
+
+var prodRepo = new DapperProductRepository(conn);
+var products = prodRepo.GetAllProducts();
+
+foreach (var product in products)
+{
+    Console.WriteLine($"Product ID: {product.ProductID}\nProduct Name: {product.Name}\nProduct Price: {product.Price}\n");
 }
